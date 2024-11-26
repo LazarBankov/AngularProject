@@ -1,0 +1,169 @@
+[{
+  "_id": {
+    "$oid": "5fa64a9f2183ce1728ff371a"
+  },
+  "subscribers": [
+    {
+      "$oid": "5fa64a072183ce1728ff3719"
+    },
+    {
+      "$oid": "5fa64ca72183ce1728ff3726"
+    },
+    {
+      "$oid": "5fa64c1f2183ce1728ff3723"
+    },
+    {
+      "$oid": "5fa64b972183ce1728ff3720"
+    },
+    {
+      "$oid": "5fa65bac2183ce1728ff372b"
+    }
+  ],
+  "posts": [
+    {
+      "$oid": "5fa64a9f2183ce1728ff371b"
+    },
+    {
+      "$oid": "5fa65be82183ce1728ff372d"
+    }
+  ],
+  "themeName": "Angular 10",
+  "userId": {
+    "$oid": "5fa64a072183ce1728ff3719"
+  },
+  "created_at": {
+    "$date": "2020-11-07T07:19:59.933Z"
+  },
+  "updatedAt": {
+    "$date": "2020-11-07T08:33:44.801Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "5fa64b6f2183ce1728ff371e"
+  },
+  "subscribers": [
+    {
+      "$oid": "5fa64b162183ce1728ff371d"
+    },
+    {
+      "$oid": "5fa64ca72183ce1728ff3726"
+    },
+    {
+      "$oid": "5fa64c1f2183ce1728ff3723"
+    },
+    {
+      "$oid": "5fa65afb2183ce1728ff3729"
+    },
+    {
+      "$oid": "5fa65bac2183ce1728ff372b"
+    }
+  ],
+  "posts": [
+    {
+      "$oid": "5fa64b6f2183ce1728ff371f"
+    },
+    {
+      "$oid": "5fa65b622183ce1728ff372a"
+    },
+    {
+      "$oid": "5fa65bc32183ce1728ff372c"
+    }
+  ],
+  "themeName": "JS Advanced course",
+  "userId": {
+    "$oid": "5fa64b162183ce1728ff371d"
+  },
+  "created_at": {
+    "$date": "2020-11-07T07:23:27.015Z"
+  },
+  "updatedAt": {
+    "$date": "2020-11-07T08:33:07.264Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "5fa64bd02183ce1728ff3721"
+  },
+  "subscribers": [
+    {
+      "$oid": "5fa64b972183ce1728ff3720"
+    },
+    {
+      "$oid": "5fa64ca72183ce1728ff3726"
+    },
+    {
+      "$oid": "5fa64c1f2183ce1728ff3723"
+    }
+  ],
+  "posts": [
+    {
+      "$oid": "5fa64bd02183ce1728ff3722"
+    }
+  ],
+  "themeName": "React hooks - Pros and Cons",
+  "userId": {
+    "$oid": "5fa64b972183ce1728ff3720"
+  },
+  "created_at": {
+    "$date": "2020-11-07T07:25:04.060Z"
+  },
+  "updatedAt": {
+    "$date": "2020-11-07T08:24:42.659Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "5fa64c6d2183ce1728ff3724"
+  },
+  "subscribers": [
+    {
+      "$oid": "5fa64c1f2183ce1728ff3723"
+    }
+  ],
+  "posts": [
+    {
+      "$oid": "5fa64c6d2183ce1728ff3725"
+    }
+  ],
+  "themeName": "Express JS - How to deploy in Heroku",
+  "userId": {
+    "$oid": "5fa64c1f2183ce1728ff3723"
+  },
+  "created_at": {
+    "$date": "2020-11-07T07:27:41.098Z"
+  },
+  "updatedAt": {
+    "$date": "2020-11-07T07:27:41.109Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "5fa64cec2183ce1728ff3727"
+  },
+  "subscribers": [
+    {
+      "$oid": "5fa64ca72183ce1728ff3726"
+    }
+  ],
+  "posts": [
+    {
+      "$oid": "5fa64cec2183ce1728ff3728"
+    }
+  ],
+  "themeName": "Java Advanced",
+  "userId": {
+    "$oid": "5fa64ca72183ce1728ff3726"
+  },
+  "created_at": {
+    "$date": "2020-11-07T07:29:48.433Z"
+  },
+  "updatedAt": {
+    "$date": "2020-11-07T07:29:48.451Z"
+  },
+  "__v": 0
+}]
