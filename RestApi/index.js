@@ -19,7 +19,7 @@ dbConnector()
       credentials: true
     }));
 
-    app.use('/api', apiRouter);
+    app.use('/EcoHunt', apiRouter);
 
     app.use(errorHandler);
 

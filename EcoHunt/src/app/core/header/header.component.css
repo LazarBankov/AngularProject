@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #28a745, #007bff);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.header .logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.header .logo img {
+    height: 40px; /* Adjust the height to make the logo smaller */
+    margin-right: 10px;
+}
+.header .logo span {
+    font-size: 20px;
+    font-weight: bold;
+}
+.header .nav-links {
+    display: flex;
+    gap: 20px;
+}
+.header .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: background 0.3s, transform 0.3s;
+    border-radius: 5px;
+}
+.header .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
