@@ -1,1 +1,22 @@
-<p>create-dump-place works!</p>
+<div class="form-container">
+  <h2>Create New Dump</h2>
+  <form id="createDumpForm">
+    <div class="form-group">
+      <label for="photo">Photo:</label>
+      <input type="file" id="photo" name="photo" accept="image/*" required />
+    </div>
+    <div class="form-group">
+      <label for="location">Location:</label>
+      <input
+        type="text"
+        id="location"
+        name="location"
+        placeholder="Enter location"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Create Dump" />
+    </div>
+  </form>
+</div>
