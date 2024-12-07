@@ -1,0 +1,12 @@
+<div class="post-container">
+  <h2>{{ post.photo }}</h2>
+  <img [src]="post.photo" alt="Post Image" class="post-image" />
+  <p><strong>Address:</strong> {{ post.location.address || null}}</p>
+  <p><strong>Latitude:</strong> {{ post.location.latitude }}</p>
+  <p><strong>Longitude:</strong> {{ post.location.longitude }}</p>
+  <p><strong>Created By:</strong> {{ post.creator }}</p>
+  <p><strong>Created At:</strong> {{ post.created_time }}</p>
+  <p><strong>Size:</strong> {{ post.size_of_dump }}</p>
+  <p><strong>People Needed:</strong> {{ post.people_needed }}</p>
+  <p><strong>Tools Needed:</strong> {{ post.tools_needed }}</p>
+</div>

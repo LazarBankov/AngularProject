@@ -1,0 +1,38 @@
+<div class="hero">
+  <div>
+    <h2>Join the Hunt to Clean the Earth</h2>
+    <p>Find, report, and clean up dump sites in your community.</p>
+  </div>
+</div>
+
+<div class="content">
+  <h2>Our Mission</h2>
+  <p>
+    EcoHunt is dedicated to making our planet cleaner and greener. We connect
+    volunteers with local dump sites that need cleaning, providing all the
+    information and resources necessary to make a difference.
+  </p>
+
+  <h2>Featured Dump Sites</h2>
+  <div class="featured-dumps">
+    @if (isLoading) {
+      <app-loader />
+    }@else {
+      @for (post of posts; track $index) {
+        <div class="dump">
+          <img src="{{post.photo}}">
+          <h3>{{post.location.address}}</h3>
+          <p>Size: {{post.size_of_dump}}</p>
+          <p>People Needed: {{post.people_needed}}</p>
+          <p>Tools: {{post.tools_needed}}</p>
+          <a [routerLink]="post._id" class="details-button">Details</a>
+      </div>
+      }
+    }
+  </div>
+  @if (!isLoggedIn) {
+  <div class="cta">
+    <a routerLink="/register">Join the EcoHunt Today</a>
+  </div>
+}
+</div>

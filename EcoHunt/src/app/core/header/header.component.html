@@ -1,14 +1,22 @@
 <header class="header">
-    <div class="logo"> <!-- will redirect to homepage-->
-        <img src="EcoHuntLogo.png">
-        <span>EcoHunt</span>
+    <div class="logo" routerLink="/home">
+      <img src="EcoHuntLogo.png" alt="EcoHunt Logo">
+      <span>EcoHunt</span>
     </div>
+  
     <nav class="nav-links">
-        <a href="#">Create Dump Place</a>
-        <a href="#">Actual Dump Places</a>
-        <a href="#">Cleaned Places</a>
-        <a href="#">Login</a>
-        <a href="#">Register</a>
-        <a href="#">About Us</a>
+      <!-- If logged in, display the following links -->
+      @if (!isLoggedIn) {
+        <a routerLink="/cleaned-places" class="nav-btn">Cleaned Places</a>
+        <a routerLink="/login" class="nav-btn">Login</a>
+        <a routerLink="/register" class="nav-btn">Register</a>
+      } @else {
+        <!-- If not logged in, display these links -->
+        <a routerLink="/create" class="nav-btn">Create Dump Place</a>
+        <a routerLink="/actual-dump-places" class="nav-btn">Actual Dump Places</a>
+        <a (click)="logout()" class="nav-btn">Logout</a>
+      }
+      <a routerLink="/about" class="nav-btn">About Us</a>
     </nav>
-</header>
+  </header>
+  

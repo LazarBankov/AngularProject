@@ -1,42 +1,97 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  font-family: "Roboto", Arial, sans-serif;
+  background-color: #f8f9fa;
 }
+
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: linear-gradient(45deg, #28a745, #007bff);
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: linear-gradient(135deg, #28a745, #007bff);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-bottom: 2px solid #007bff;
 }
+
+/* Logo Styling */
 .header .logo {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
 }
+
 .header .logo img {
-    height: 40px; /* Adjust the height to make the logo smaller */
-    margin-right: 10px;
+  height: 50px;
+  transition: transform 0.3s ease-in-out;
 }
+
+.header .logo img:hover {
+  transform: rotate(10deg);
+}
+
 .header .logo span {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links .nav-btn {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 12px 25px;
+  border-radius: 8px;
+  background-color: #4caf50;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.nav-links .nav-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Active Link Styling */
+.nav-links .nav-btn.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 20px;
+  }
+
+  .header .logo span {
     font-size: 20px;
-    font-weight: bold;
-}
-.header .nav-links {
-    display: flex;
-    gap: 20px;
-}
-.header .nav-links a {
-    color: white;
-    text-decoration: none;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links .nav-btn {
     font-size: 16px;
-    padding: 10px 15px;
-    transition: background 0.3s, transform 0.3s;
-    border-radius: 5px;
-}
-.header .nav-links a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1);
+    padding: 12px 20px;
+  }
 }

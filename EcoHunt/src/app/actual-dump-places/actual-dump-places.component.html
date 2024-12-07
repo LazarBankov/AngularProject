@@ -1,1 +1,25 @@
-<p>actual-dump-places works!</p>
+@for (post of posts; track $index) {
+<div class="catalog-container">
+  @if (isLoading) {
+  <app-loader></app-loader>
+  } @else {
+  <div class="catalog">
+    <div class="card">
+      <img [src]="post.photo" alt="Dump Photo" class="card-image" />
+      <div class="card-content">
+        <h3>{{ post.creator }}</h3>
+        <p><strong>Address:</strong> {{ post.location.address }}</p>
+        <p><strong>Latitude:</strong> {{ post.location.latitude }}</p>
+        <p><strong>Longitude:</strong> {{ post.location.longitude }}</p>
+        <p><strong>Size:</strong> {{ post.size_of_dump }}</p>
+        <p><strong>People Needed:</strong> {{ post.people_needed }}</p>
+        <p><strong>Tools Needed:</strong> {{ post.tools_needed }}</p>
+        <a [routerLink]="['/post', post._id]" class="details-button"
+          >View Details</a
+        >
+      </div>
+    </div>
+  </div>
+  }
+</div>
+}

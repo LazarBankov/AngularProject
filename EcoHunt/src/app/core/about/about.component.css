@@ -1,5 +1,6 @@
+/* General body styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
@@ -7,29 +8,62 @@ body {
     flex-direction: column;
     align-items: center;
     animation: fadeIn 1s ease-in-out;
-    background-image: -moz-element();
-}
-
-.content {
-    display: contents;
+    background: #f0f0f0; /* Use a solid background color for consistency */
+  }
+  
+  /* Content Box Styling */
+  .content {
     max-width: 800px;
     background: white;
-    padding: 20px;
+    padding: 30px;
     margin: 20px;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
     animation: fadeIn 1.5s ease-in-out;
-    text-align: center;
-}
-
-.content ul {
+    text-align: left; /* Change text alignment to the left for better readability */
+    transition: transform 0.3s ease-in-out; /* Smooth transition when hovered */
+  }
+  
+  /* Hover Effect on Content Box */
+  .content:hover {
+    transform: translateY(-5px); /* Lift effect when hovering over the content */
+  }
+  
+  /* Unordered List Styling */
+  .content ul {
     padding-left: 20px;
-}
-
-@keyframes fadeIn {
+    list-style-type: disc;
+    margin: 0;
+    font-size: 1.1rem; /* Increase font size slightly for better readability */
+    color: #555;
+  }
+  
+  /* List items */
+  .content ul li {
+    margin-bottom: 10px; /* Space out list items for readability */
+    line-height: 1.8; /* Improve line height for better visual flow */
+  }
+  
+  /* Keyframes for the FadeIn Animation */
+  @keyframes fadeIn {
     from {
-        opacity: 0;
+      opacity: 0;
     }
     to {
-        opacity: 1;
+      opacity: 1;
     }
-}
+  }
+  
+  /* Responsive Design for smaller screens */
+  @media (max-width: 768px) {
+    body {
+      padding: 10px; /* Add padding to the body for smaller screens */
+    }
+  
+    .content {
+      padding: 20px; /* Adjust padding for smaller screens */
+      margin: 10px;
+      width: 100%; /* Make the content fill the screen width */
+    }
+  }
+  
