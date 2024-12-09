@@ -1,5 +1,5 @@
 <div class="form-container">
-  <form id="create-post-form">
+  <form #form="ngForm" (ngSubmit)="addPost(form)" id="create-post-form">
     <h2>Create New Dump Post</h2>
 
     <label for="photo">Photo URL:</label>
@@ -9,7 +9,8 @@
       name="photo"
       placeholder="Enter photo URL"
       required
-      #inputPhotoUrl
+      #inputPhotoUrl="ngModel"
+      ngModel
     />
 
     <label for="address">Address:</label>
@@ -83,6 +84,6 @@
       #inputToolsNeeded
     ></textarea>
 
-    <button type="submit" (click)="addPost($event, inputPhotoUrl.value, inputAddress.value, inputLatitude.value, inputLongitude.value, inputCreator.value, inputSize.value, inputPeopleNeeded.value, inputToolsNeeded.value)">Submit</button>
+    <button type="submit">Submit</button>
   </form>
 </div>

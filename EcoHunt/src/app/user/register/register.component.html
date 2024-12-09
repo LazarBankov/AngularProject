@@ -1,54 +1,131 @@
 <div class="register-container">
-    <h2>Register</h2>
+  <h2>Register</h2>
 
-    <form>
-      
-      <!-- Email -->
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input id="email" formControlName="email" type="email" class="form-control" />
+  <form [formGroup]="form" (ngSubmit)="register()">
 
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        class="form-control"
+        formControlName="email"
+      />
+    </div>
+    @if(form.get('email')?.touched){
+      <div class="error-message">
+        @if(form.get('email')?.errors?.['required']) {
+          <div>Email is required</div>
+        }
+        @if (form.get('email')?.errors?.['emailValidator']) {
+          <div>Invalid email format</div>
+        }
       </div>
+      }
 
-      <!-- Username -->
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input id="username" formControlName="username" type="text" class="form-control" />
-
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        id="username"
+        type="text"
+        class="form-control"
+        formControlName="username"
+      />
+    </div>
+    @if(form.get('username')?.touched){
+      <div class="error-message">
+         @if(form.get('username')?.errors?.['required']) {
+        <div >Username is required!</div>
+      }
+        @if (form.get('username')?.errors?.['minlength']) {
+        <div >
+          Username must be at least 4 characters!
+        </div>
+      }
       </div>
+    }
 
-      <!-- Password -->
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input id="password" formControlName="password" type="password" class="form-control" />
-
+    <div formGroupName="passGroup" class="form-group">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        class="form-control"
+        formControlName="password"
+      />
+    </div>
+    @if(passGroup?.get('password')?.touched){
+      <div class="error-message">
+         @if(passGroup?.get('password')?.errors?.['required']) {
+        <div >Password is required!</div>
+      }
+        @if (passGroup?.get('password')?.errors?.['minlength']) {
+        <div >
+          Password must be at least 6 characters!
+        </div>
+      }
       </div>
+    }
 
-      <!-- Re-Password -->
-      <div class="form-group">
-        <label for="rePassword">Re-Password</label>
-        <input id="rePassword" formControlName="rePassword" type="password" class="form-control" />
-
+    <div formGroupName="passGroup" class="form-group">
+      <label for="rePassword">Confirm password</label>
+      <input
+        id="rePassword"
+        type="password"
+        class="form-control"
+        formControlName="rePassword"
+      />
+    </div>
+    @if(passGroup?.errors?.['equalPassValidator']){
+      <div class="error-message">
+        <div >
+          Confirm password must be equal to password!
+        </div>
       </div>
+    }
 
-      <!-- Place of Living -->
-      <div class="form-group">
-        <label for="placeOfLiving">Place of Living</label>
-        <input id="placeOfLiving" formControlName="placeOfLiving" type="text" class="form-control" />
+
+    <div class="form-group">
+      <label for="placeOfLiving">Place of Living</label>
+      <input
+        id="placeOfLiving"
+        type="text"
+        class="form-control"
+        formControlName="placeOfLiving"
+      />
+    </div>
+    @if(form.get('placeOfLiving')?.touched){
+      <div class="error-message">
+         @if(form.get('placeOfLiving')?.errors?.['required']) {
+        <div >Place Of Living is required!</div>
+      }
       </div>
+    }
 
-      <!-- Hobbies as Text Input -->
-      <div class="form-group">
-        <label for="hobbies">Hobbies (comma separated)</label>
-        <input id="hobbies" formControlName="hobbies" type="text" class="form-control" />
-      </div>
 
-      <!-- Tools -->
-      <div class="form-group">
-        <label for="tools">Tools</label>
-        <input id="tools" formControlName="tools" type="text" class="form-control" />
-      </div>
+    <div class="form-group">
+      <label for="hobbies">Hobbies (comma separated)</label>
+      <input
+        id="hobbies"
+        type="text"
+        class="form-control"
+        formControlName="hobbies"
+      />
+    </div>
 
-      <button type="submit" class="btn btn-primary">Register</button>
-    </form>
-  </div>
+
+    <div class="form-group">
+      <label for="tools">Tools</label>
+      <input
+        id="tools"
+        type="text"
+        class="form-control"
+        formControlName="tools"
+      />
+    </div>
+
+    <button [disabled]="form.invalid" type="submit" class="btn btn-primary">
+      Register
+    </button>
+  </form>
+</div>

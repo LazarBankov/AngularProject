@@ -30,6 +30,9 @@
   font-size: 16px;
   cursor: pointer;
 }
+.btn:hover {
+  background-color: #00cc07;
+}
 .btn:disabled {
   background-color: #ddd;
 }
