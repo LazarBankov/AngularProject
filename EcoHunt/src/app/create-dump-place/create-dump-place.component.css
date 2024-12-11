@@ -1,21 +1,11 @@
-body {
-    font-family: 'Roboto', Arial, sans-serif;
-    background-color: #f8f9fa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
 
 .form-container {
+    align-items:center;
     background: #fff;
-    padding: 20px;
-    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-    margin: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
 }
 
 h2 {
@@ -28,6 +18,11 @@ label {
     margin-top: 10px;
     color: #333;
 }
+
+.error-message {
+    color: red;
+    font-size: 0.875rem;
+  }
 
 input, textarea {
     width: calc(100% - 20px);

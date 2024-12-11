@@ -1,0 +1,122 @@
+<div class="profile-container">
+    @if (!isEditMode) {
+  <h2>User Profile</h2>
+
+  <div class="profile-group">
+    <label>Email:</label>
+    <span>{{profileDetails.email}}</span>
+  </div>
+  <div class="profile-group">
+    <label>Username:</label>
+    <span>{{profileDetails.username}}</span>
+  </div>
+  <div class="profile-group">
+    <label>Place of Living:</label>
+    <span>{{profileDetails.placeOfLiving}}</span>
+  </div>
+  <div class="profile-group">
+    <label>Hobbies:</label>
+    <span>{{profileDetails.hobbies || "Without hobbies &#128543;"}}</span>
+  </div>
+  <div class="profile-group">
+    <label>Tools:</label>
+    <span>{{profileDetails.tools || "No Tools &#128533;"}}</span>
+  </div>
+  <div class="button-group">
+    <button (click)="editMode()" class="btn btn-primary">Edit</button>
+    <button class="btn btn-secondary">Email</button>
+  </div>
+    } @else {
+  <div class="edit-profile-container">
+    <h2>Edit Profile</h2>
+
+    <form [formGroup]="form" (ngSubmit)="editHandler()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          class="form-control"
+          formControlName="email"
+        />
+        @if(form.get('email')?.touched){
+          <div class="error-message">
+            @if(form.get('email')?.errors?.['required']) {
+              <div>Email is required</div>
+            }
+            @if (form.get('email')?.errors?.['emailValidator']) {
+              <div>Invalid email format</div>
+            }
+          </div>
+          }
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          type="text"
+          class="form-control"
+          formControlName="username"
+        />
+      </div>
+      @if(form.get('username')?.touched){
+        <div class="error-message">
+           @if(form.get('username')?.errors?.['required']) {
+          <div >Username is required!</div>
+        }
+          @if (form.get('username')?.errors?.['minlength']) {
+          <div >
+            Username must be at least 4 characters!
+          </div>
+        }
+        </div>
+      }
+      <div class="form-group">
+        <label for="placeOfLiving">Place of Living</label>
+        <input
+          id="placeOfLiving"
+          type="text"
+          class="form-control"
+          formControlName="placeOfLiving"
+        />
+      </div>
+      @if(form.get('placeOfLiving')?.touched){
+        <div class="error-message">
+           @if(form.get('placeOfLiving')?.errors?.['required']) {
+          <div >Place Of Living is required!</div>
+        }
+        </div>
+      }
+      <div class="form-group">
+        <label for="hobbies">Hobbies (comma separated)</label>
+        <input
+          id="hobbies"
+          type="text"
+          class="form-control"
+          formControlName="hobbies"
+        />
+      </div>
+      <div class="form-group">
+        <label for="tools">Tools</label>
+        <input
+          id="tools"
+          type="text"
+          class="form-control"
+          formControlName="tools"
+
+        />
+      </div>
+      <button type="submit" class="btn btn-primary" >
+        Update Profile
+      </button>
+      <button (click)="onCancel($event)" type="cancel" class="btn btn-primary" >
+        Cancel Update
+      </button>
+    </form>
+</div>
+<div class="button-group">
+  <button class="btn btn-secondary">Email</button>
+</div>
+}
+</div>

@@ -18,3 +18,11 @@ export interface UserForAuth {
     password: string;
     id: string;
 }
+
+export interface ProfileDetails {
+    email: string,
+    username: string,
+    placeOfLiving: string,
+    hobbies: string,
+    tools: string
+}

@@ -7,14 +7,14 @@
     <div class="card">
       <img [src]="post.photo" alt="Dump Photo" class="card-image" />
       <div class="card-content">
-        <h3>{{ post.creator }}</h3>
-        <p><strong>Address:</strong> {{ post.location.address }}</p>
-        <p><strong>Latitude:</strong> {{ post.location.latitude }}</p>
-        <p><strong>Longitude:</strong> {{ post.location.longitude }}</p>
-        <p><strong>Size:</strong> {{ post.size_of_dump }}</p>
-        <p><strong>People Needed:</strong> {{ post.people_needed }}</p>
-        <p><strong>Tools Needed:</strong> {{ post.tools_needed }}</p>
-        <a [routerLink]="['/post', post._id]" class="details-button"
+        <h3>Location: {{ post.address }}</h3>
+        <p><strong>Creator:</strong>{{post.creator}}</p>
+        <p><strong>Latitude:</strong> {{ post.latitude }}</p>
+        <p><strong>Longitude:</strong> {{ post.longitude }}</p>
+        <p><strong>Size:</strong> {{ post.size }}</p>
+        <p><strong>People Needed:</strong> {{ post.people }}</p>
+        <p><strong>Tools Needed:</strong> {{ post.tools }}</p>
+        <a [routerLink]="[post._id]" class="details-button"
           >View Details</a
         >
       </div>

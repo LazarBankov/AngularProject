@@ -21,10 +21,10 @@
       @for (post of posts; track $index) {
         <div class="dump">
           <img src="{{post.photo}}">
-          <h3>{{post.location.address}}</h3>
-          <p>Size: {{post.size_of_dump}}</p>
-          <p>People Needed: {{post.people_needed}}</p>
-          <p>Tools: {{post.tools_needed}}</p>
+          <h3>Location: {{post.address}}</h3>
+          <p>Size: {{post.size}}</p>
+          <p>People Needed: {{post.people}}</p>
+          <p>Tools: {{post.tools}}</p>
           <a [routerLink]="post._id" class="details-button">Details</a>
       </div>
       }

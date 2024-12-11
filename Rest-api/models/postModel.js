@@ -7,38 +7,34 @@ const postSchema = new mongoose.Schema({
         type: String, 
         required: true
     },
-    location: {
-        latitude: {
-            type: Number, 
-            required: true
+    latitude: {
+        type: Number, 
+        required: true
         },
-        longitude: {
-            type: Number, 
-            required: true
+    longitude: {
+        type: Number, 
+        required: true
         },
-        address: {
-            type: String, 
-            required: true
-        }
-    },
+    address: {
+        type: String, 
+        required: true
+        },
     creator: {
         type: String, 
         required: true
     },
-    created_time: {
+    created_at: {
         type: Date, 
-        required: true,
-
     },
-    size_of_dump: {
+    size: {
         type: String, 
         required: true
     },
-    people_needed: {
+    people: {
         type: Number, 
         required: true
     },
-    tools_needed: [{
+    tools: [{
         type: Array, 
         required: true
     }],
@@ -49,10 +45,6 @@ const postSchema = new mongoose.Schema({
     userId: {
         type: ObjectId,
         ref: 'User', 
-        required: true
-    },
-    postId: {
-        type: ObjectId,
         required: true
     }
 }, { timestamps: { createdAt: 'created_at' } });

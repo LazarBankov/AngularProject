@@ -1,13 +1,9 @@
-const { userModel, themeModel, postModel } = require('../models');
+const { userModel, postModel } = require('../models');
 
-function newPost(text, userId, themeId) {
-    return postModel.create({ text, userId, themeId })
-        .then(post => {
-            return Promise.all([
-                userModel.updateOne({ _id: userId }, { $push: { posts: post._id }, $addToSet: { themes: themeId } }),
-                themeModel.findByIdAndUpdate({ _id: themeId }, { $push: { posts: post._id }, $addToSet: { subscribers: userId } }, { new: true })
-            ])
-        })
+async function newPost(userId, photo, address, latitude, longitude, creator, size, people, tools) {
+    const post = await postModel.create({ userId, photo, address, latitude, longitude, creator, size, people, tools });
+     await userModel.updateOne({ _id: userId }, { $push: { posts: post._id } })
+     return post;
 }
 
 function getLatestsPosts(req, res, next) {
@@ -16,7 +12,7 @@ function getLatestsPosts(req, res, next) {
     postModel.find()
         .sort({ created_at: -1 })
         .limit(limit)
-        .populate('postId userId')
+        .populate('userId')
         .then(posts => {
             res.status(200).json(posts)
         })
@@ -27,10 +23,9 @@ function getSinglePost(req, res, next) {
     const { postId } = req.params;
 
     postModel.findById(postId)
-        .populate('userId postId')
+        .populate('userId')
         .then(post => {
             if (post) {
-                console.log('Post found:', post); 
                 res.status(200).json(post);
             } else {
                 console.log('Post not found!');
@@ -42,12 +37,12 @@ function getSinglePost(req, res, next) {
 
 
 function createPost(req, res, next) {
-    const { themeId } = req.params;
-    const { _id: userId } = req.user;
-    const { postText } = req.body;
+    
+    const { photo, address, latitude, longitude, creator, size, people, tools } = req.body;
+    const userId = req.user._id;
 
-    newPost(postText, userId, themeId)
-        .then(([_, updatedTheme]) => res.status(200).json(updatedTheme))
+    newPost(userId, photo, address, latitude, longitude, creator, size, people, tools)
+        .then(post => res.status(201).json(post))
         .catch(next);
 }
 

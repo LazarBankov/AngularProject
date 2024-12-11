@@ -5,16 +5,15 @@
     </div>
   
     <nav class="nav-links">
-      <!-- If logged in, display the following links -->
       @if (!isLoggedIn) {
         <a routerLink="/cleaned-places" class="nav-btn">Cleaned Places</a>
         <a routerLink="/login" class="nav-btn">Login</a>
         <a routerLink="/register" class="nav-btn">Register</a>
       } @else {
-        <!-- If not logged in, display these links -->
         <a routerLink="/create" class="nav-btn">Create Dump Place</a>
         <a routerLink="/actual-dump-places" class="nav-btn">Actual Dump Places</a>
         <a (click)="logout()" class="nav-btn">Logout</a>
+        <a routerLink="/profile" class="nav-btn">Profile</a>
       }
       <a routerLink="/about" class="nav-btn">About Us</a>
     </nav>
