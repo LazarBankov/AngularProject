@@ -1,11 +1,10 @@
 @for (post of posts; track $index) {
-<div class="catalog-container">
+<div class="card-container">
   @if (isLoading) {
   <app-loader></app-loader>
   } @else {
-  <div class="catalog">
     <div class="card">
-      <img [src]="post.photo" alt="Dump Photo" class="card-image" />
+      <img [src]="post.photo" alt="Dump Photo" />
       <div class="card-content">
         <h3>Location: {{ post.address }}</h3>
         <p><strong>Creator:</strong>{{post.creator}}</p>
@@ -18,7 +17,6 @@
           >View Details</a
         >
       </div>
-    </div>
   </div>
   }
 </div>

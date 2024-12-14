@@ -1,33 +1,17 @@
 .wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
 }
 
 .icon {
-    width: 5.625rem;
-    height: 5.625rem;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
+margin-right: 30px;
 }
 
 .icon:hover > i {
-    scale: 1.2;
+    scale: 3;
     color: #039273;
-}
-
-.icon:before {
-    background: var(--color);
-    content: "";
-    position: absolute;
-    width: 130%;
-    height: 130%;
-    left: -110%;
-    top: 80%;
-    transform: rotate(45deg);
 }
