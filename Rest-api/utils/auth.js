@@ -9,6 +9,14 @@ function auth(redirectUnauthenticated = true) {
 
     return function (req, res, next) {
         const token = req.cookies[authCookieName] || '';
+
+        if (!token) {
+            if (redirectUnauthenticated) {
+              return res.status(401).send({ message: "Unauthorized: No token provided" });
+            }
+            return next();
+          }
+
         Promise.all([
             jwt.verifyToken(token),
             tokenBlacklistModel.findOne({ token })

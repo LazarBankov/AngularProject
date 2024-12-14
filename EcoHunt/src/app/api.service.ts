@@ -27,4 +27,7 @@ export class ApiService {
     const payload = { photo, address, latitude, longitude, creator, size, people, tools };
     return this.http.post<Post>(`/ecohunt/posts`, payload)
   }
+  editPost() {
+    
+  }
 }
