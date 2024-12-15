@@ -32,6 +32,6 @@ export class ApiService {
     return this.http.put<Post>(`/ecohunt/posts/${postId}`, payload)
   }
   deletePost(postId: string) {
-    return this.http.delete<Post>(`/ecohunt/posts/${postId}`)
+    return this.http.delete(`/ecohunt/posts/${postId}`)
   }
 }

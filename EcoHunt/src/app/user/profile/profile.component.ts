@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { emailValidator } from '../../utils/email.validator';
 import { DOMAINS } from '../../constants';
 import { ProfileDetails } from '../../types/user';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -12,24 +13,34 @@ import { ProfileDetails } from '../../types/user';
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
   isEditMode: boolean = false;
 
   profileDetails: ProfileDetails = {
-    email: 'vrbuff1@gmail.com',
-    username: 'John',
-    placeOfLiving: 'Pleven',
-    hobbies: 'sasdasd, sdawdasd, asdawdasd, asdawwwqq',
-    tools: 'dsdawdawd, da wdwad, awdawda wd, dwadw'
+    email: '',
+    username: '',
+    placeOfLiving: '',
+    hobbies: '',
+    tools: ''
   }
 
   form = new FormGroup ({
-    email: new FormControl(this.profileDetails.email, [Validators.required, emailValidator(DOMAINS)]),
-    username: new FormControl(this.profileDetails.username, [Validators.required, Validators.minLength(4)]),
-    placeOfLiving: new FormControl(this.profileDetails.placeOfLiving, [Validators.required]),
-    hobbies: new FormControl(this.profileDetails.hobbies),
-    tools: new FormControl(this.profileDetails.tools),
-  })
+    email: new FormControl('', [Validators.required, emailValidator(DOMAINS)]),
+    username: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    placeOfLiving: new FormControl('', [Validators.required]),
+    hobbies: new FormControl(''),
+    tools: new FormControl(''),
+  });
+
+  constructor (private userService: UserService) {}
+
+  ngOnInit(): void {
+    const { email, username, placeOfLiving, hobbies, tools } = this.userService.user!;
+    this.profileDetails = { email, username, placeOfLiving, hobbies: hobbies!, tools: tools! };
+    this.form.setValue({
+      email, username, placeOfLiving, hobbies: hobbies!, tools: tools!
+    })
+  }
 
   editMode () {
     this.isEditMode = !this.isEditMode
@@ -42,7 +53,11 @@ export class ProfileComponent {
     }
     
     this.profileDetails = this.form.value as ProfileDetails;
-    this.editMode();
+
+    const { email, username, placeOfLiving, hobbies, tools } = this.profileDetails;
+    this.userService.updateProfile(email, username, placeOfLiving, hobbies, tools).subscribe(() => {
+      this.editMode();
+    })
   }
 
   onCancel(event: Event) {

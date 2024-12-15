@@ -14,5 +14,6 @@ router.use('/posts', posts);
 router.use('/likes', likes);
 router.use('/test', test);
 router.get('/posts/:postId', posts);
+router.delete('/posts/:postId', posts);
 
 module.exports = router;

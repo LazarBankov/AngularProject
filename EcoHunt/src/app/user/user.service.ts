@@ -61,4 +61,19 @@ export class UserService {
       .get<UserForAuth>('/ecohunt/users/profile')
       .pipe(tap((user) => this.user$$.next(user)));
   }
+
+  updateProfile(email: string,
+    username: string,
+    placeOfLiving: string,
+    hobbies: string,
+    tools: string) {
+      return this.http.put<UserForAuth>(`/ecohunt/users/profile`, {
+        email,
+        username,
+        placeOfLiving,
+        hobbies,
+        tools
+      })
+      .pipe(tap((user) => this.user$$.next(user)));
+  }
 }

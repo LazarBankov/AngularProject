@@ -38,8 +38,8 @@ export class RegisterComponent {
       }
     ),
     placeOfLiving: new FormControl('', [Validators.required]),
-    hobbies: new FormControl(''),
-    tools: new FormControl(''),
+    hobbies: new FormControl('', [Validators.required]),
+    tools: new FormControl('', [Validators.required]),
   });
 
   constructor(private userService: UserService, private router: Router) {}
