@@ -27,7 +27,11 @@ export class ApiService {
     const payload = { photo, address, latitude, longitude, creator, size, people, tools };
     return this.http.post<Post>(`/ecohunt/posts`, payload)
   }
-  editPost() {
-    
+  editPost(postId: string, photo: string, address: string, latitude: string, longitude: string, creator: string, size: string, people: string, tools: string) {
+    const payload = { photo, address, latitude, longitude, creator, size, people, tools };
+    return this.http.put<Post>(`/ecohunt/posts/${postId}`, payload)
+  }
+  deletePost(postId: string) {
+    return this.http.delete<Post>(`/ecohunt/posts/${postId}`)
   }
 }

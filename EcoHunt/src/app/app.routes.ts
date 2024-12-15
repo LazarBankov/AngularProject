@@ -10,6 +10,7 @@ import { ActualDumpPlacesComponent } from './actual-dump-places/actual-dump-plac
 import { CurrentPostComponent } from './current-post/current-post.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ProfileComponent } from './user/profile/profile.component';
+import { ErrorMsgComponent } from './core/error-msg/error-msg.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -17,7 +18,7 @@ export const routes: Routes = [
         { path: '', component: HomeComponent }, 
         { path: ':postId', component: CurrentPostComponent, canActivate: [AuthGuard] }, 
     ] },
-    { path: 'login', component: LoginComponent },
+    { path: 'login', component: LoginComponent },   
     { path: 'profile', component: ProfileComponent, canActivate: [ AuthGuard ] },
     { path: 'register', component: RegisterComponent },
     { path: 'cleaned-places', component: CleanedPlacesComponent },
@@ -27,6 +28,7 @@ export const routes: Routes = [
         { path: ':postId', component: CurrentPostComponent }, 
     ] , canActivate: [AuthGuard]
 },
+    { path: 'error', component: ErrorMsgComponent },
     { path: 'about', component: AboutComponent },
     { path: '404', component: ErrorComponent },
     { path: '**', redirectTo: '/404' },

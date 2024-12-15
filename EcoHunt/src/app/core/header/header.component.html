@@ -5,8 +5,8 @@
     </div>
   
     <nav class="nav-links">
+      <a routerLink="/cleaned-places" class="nav-btn">Cleaned Places</a>
       @if (!isLoggedIn) {
-        <a routerLink="/cleaned-places" class="nav-btn">Cleaned Places</a>
         <a routerLink="/login" class="nav-btn">Login</a>
         <a routerLink="/register" class="nav-btn">Register</a>
       } @else {

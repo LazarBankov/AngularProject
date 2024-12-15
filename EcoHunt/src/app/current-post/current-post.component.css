@@ -50,6 +50,25 @@ p strong {
   color: #333;
 }
 
+.btn {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 12px 25px;
+  border-radius: 16px;
+  background-color: #4caf50;
+  margin-right: 10px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: rotate(10deg);
+
+}
+
 @media (max-width: 768px) {
   body {
     padding: 10px;
