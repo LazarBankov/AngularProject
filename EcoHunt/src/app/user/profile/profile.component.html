@@ -30,7 +30,7 @@
   <div class="edit-profile-container">
     <h2>Edit Profile</h2>
 
-    <form [formGroup]="form" (submit)="editHandler()">
+    <form [formGroup]="form" (ngSubmit)="editHandler()">
       <div class="form-group">
         <label for="email">Email</label>
         <input
