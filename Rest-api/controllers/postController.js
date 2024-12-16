@@ -56,6 +56,9 @@ function editPost(req, res, next) {
     // if the userId is not the same as this one of the post, the post will not be updated
     postModel.findOneAndUpdate({ _id: postId, userId }, { photo: photo, address: address, latitude: latitude, longitude: longitude, creator: creator, size: size, people: people, tools: tools }, { new: true })
         .then(updatedPost => {
+            if (updatedPost.userId.toString() !== userId.toString()) {
+                return res.status(403).json({ message: 'Not allowed to edit this post!' });
+              }
             if (updatedPost) {
                 res.status(200).json(updatedPost);
             }
@@ -69,6 +72,12 @@ function editPost(req, res, next) {
 function deletePost(req, res, next) {
     const { postId } = req.params;
     const { _id: userId } = req.user;
+
+    postModel.findById(postId)
+    .then(post => {
+      if (post.userId.toString() !== userId.toString()) {
+        return res.status(403).json({ message: 'Not allowed to delete this post!' });
+      }
     
     Promise.all([
         postModel.findOneAndDelete({ _id: postId, userId }),
@@ -80,6 +89,8 @@ function deletePost(req, res, next) {
             } else {
                 res.status(401).json({ message: `Not allowed!` });
             }
+        })
+        .catch(next)
         })
         .catch(next);
 }
