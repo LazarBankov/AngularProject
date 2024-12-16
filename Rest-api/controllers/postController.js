@@ -48,11 +48,13 @@ function createPost(req, res, next) {
 
 function editPost(req, res, next) {
     const { postId } = req.params;
-    const { postText } = req.body;
+    
+    const { photo, address, latitude, longitude, creator, size, people, tools } = req.body;
     const { _id: userId } = req.user;
 
+    
     // if the userId is not the same as this one of the post, the post will not be updated
-    postModel.findOneAndUpdate({ _id: postId, userId }, { text: postText }, { new: true })
+    postModel.findOneAndUpdate({ _id: postId, userId }, { photo: photo, address: address, latitude: latitude, longitude: longitude, creator: creator, size: size, people: people, tools: tools }, { new: true })
         .then(updatedPost => {
             if (updatedPost) {
                 res.status(200).json(updatedPost);

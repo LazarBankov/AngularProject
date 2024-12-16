@@ -36,8 +36,8 @@
         name="photo"
         placeholder="Enter photo URL"
         required
+        [(ngModel)]="post.photo"
         #inputPhotoUrl="ngModel"
-        ngModel
       />
   
       @if(inputPhotoUrl?.touched){
@@ -55,7 +55,7 @@
         name="address"
         placeholder="Enter address"
         required
-        ngModel
+        [(ngModel)]="post.address"
         #inputAddress="ngModel"
       />
       @if(inputAddress?.touched){
@@ -73,7 +73,7 @@
         placeholder="Enter latitude"
         step="0.000001"
         required
-        ngModel
+        [(ngModel)]="post.latitude"
         #inputLatitude="ngModel"
       />
       @if(inputLatitude?.touched){
@@ -91,7 +91,7 @@
         placeholder="Enter longitude"
         step="0.000001"
         required
-        ngModel
+        [(ngModel)]="post.longitude"
         #inputLongitude="ngModel"
       />
       @if(inputLongitude?.touched){
@@ -108,7 +108,7 @@
         name="creator"
         placeholder="Enter your name"
         required
-        ngModel
+        [(ngModel)]="post.creator"
         #inputCreator="ngModel"
       />
       @if(inputCreator?.touched){
@@ -126,7 +126,7 @@
         name="size"
         placeholder="Enter size of dump"
         required
-        ngModel
+        [(ngModel)]="post.size"
         #inputSize="ngModel"
       />
   
@@ -145,7 +145,7 @@
         name="people"
         placeholder="Enter number of people needed"
         required
-        ngModel
+        [(ngModel)]="post.people"
         #inputPeopleNeeded="ngModel"
       />
       @if(inputPeopleNeeded?.touched){
@@ -162,7 +162,7 @@
         name="tools"
         placeholder="Enter tools needed, separated by commas"
         required
-        ngModel
+        [(ngModel)]="post.tools"
         #inputToolsNeeded="ngModel"
       ></textarea>
       @if(inputToolsNeeded?.touched){

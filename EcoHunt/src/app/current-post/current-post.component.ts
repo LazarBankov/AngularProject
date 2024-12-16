@@ -32,10 +32,13 @@ export class CurrentPostComponent implements OnInit {
   }
 
   editPost(form: NgForm) {
-    if (form.invalid) {
-      return;
-    }
-    const { photo, address, latitude, longitude, creator, size, people, tools } = form.value
+  
+    const postId = this.post._id
+    
+    const { photo, address, latitude, longitude, creator, size, people, tools } = form.value;
+    this.apiService.editPost( postId, photo, address, latitude, longitude, creator, size, people, tools).subscribe(() => {
+      this.editMode();
+    })
   }
 
   deletePost() {
