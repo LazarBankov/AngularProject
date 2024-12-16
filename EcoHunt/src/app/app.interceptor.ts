@@ -22,10 +22,11 @@ export const appInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     catchError((err) => {
       if (err.status === 401) {
-        router.navigate(['/404']);
-      }else {
         errorMsgService.setError(err);
         router.navigate(['/error']);
+      }else {
+        errorMsgService.setError(err);
+        router.navigate(['/404']);
       }
 
       return [err];

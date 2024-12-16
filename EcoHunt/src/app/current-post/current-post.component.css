@@ -69,6 +69,41 @@ p strong {
 
 }
 
+
+.form-container {
+  align-items:center;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+h2 {
+  text-align: center;
+  color: #28a745;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  color: #333;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+}
+
+input, textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 5px 0 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 @media (max-width: 768px) {
   body {
     padding: 10px;

@@ -25,7 +25,9 @@
           <p>Size: {{post.size}}</p>
           <p>People Needed: {{post.people}}</p>
           <p>Tools: {{post.tools}}</p>
+          @if (isLoggedIn) {
           <a [routerLink]="post._id" class="details-button">Details</a>
+          }
       </div>
       }
     }

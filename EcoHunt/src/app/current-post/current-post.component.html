@@ -1,29 +1,181 @@
+@if (!isEditMode) {
 <div class="post-container">
-  <h2>{{ post.creator }}</h2>
+  <h2>{{ post.address }}</h2>
   <img [src]="post.photo" alt="Post Image" class="post-image" />
-  <p><strong>Address</strong></p>
-  <p>{{ post.address || null}}</p>
   <p><strong>Latitude</strong></p>
   <p>{{ post.latitude }}</p>
   <p><strong>Longitude</strong></p>
   <p>{{ post.longitude }}</p>
   <p><strong>Created By</strong></p>
   <p>{{ post.creator }}</p>
-  <p><strong>Created At</strong></p>
-  <p>{{ post.created }}</p>
   <p><strong>Size</strong></p>
   <p>{{ post.size }}</p>
   <p><strong>People Needed</strong></p>
   <p>{{ post.people }}</p>
   <p><strong>Tools Needed</strong></p>
   <p>{{ post.tools }}</p>
-  <button type="submit" class="btn" >
+  <button type="submit" (click)="editMode()"  class="btn" >
     Update Post
   </button>
   <button type="submit" class="btn" >
-    See User's Posts
+    Attend
   </button>
   <button (click)="deletePost()" type="submit" class="btn" >
     Delete Post
   </button>
 </div>
+} @else {
+  <div class="form-container">
+    <form #form="ngForm" (ngSubmit)="editPost(form)" id="edit-post-form">
+      <h2>Edit Dump Post</h2>
+  
+      <label for="photo">Photo URL:</label>
+      <input
+        type="url"
+        id="photo"
+        name="photo"
+        placeholder="Enter photo URL"
+        required
+        #inputPhotoUrl="ngModel"
+        ngModel
+      />
+  
+      @if(inputPhotoUrl?.touched){
+        <div class="error-message">
+          @if(inputPhotoUrl?.errors?.['required']) {
+            <div>Photo Url is required</div>
+          }
+        </div>
+        }
+  
+      <label for="address">Address:</label>
+      <input
+        type="text"
+        id="address"
+        name="address"
+        placeholder="Enter address"
+        required
+        ngModel
+        #inputAddress="ngModel"
+      />
+      @if(inputAddress?.touched){
+        <div class="error-message">
+          @if(inputAddress?.errors?.['required']) {
+            <div>Address is required</div>
+          }
+        </div>
+        }
+      <label for="latitude">Latitude:</label>
+      <input
+        type="number"
+        id="latitude"
+        name="latitude"
+        placeholder="Enter latitude"
+        step="0.000001"
+        required
+        ngModel
+        #inputLatitude="ngModel"
+      />
+      @if(inputLatitude?.touched){
+        <div class="error-message">
+          @if(inputLatitude?.errors?.['required']) {
+            <div>Latitude is required</div>
+          }
+        </div>
+        }
+      <label for="longitude">Longitude:</label>
+      <input
+        type="number"
+        id="longitude"
+        name="longitude"
+        placeholder="Enter longitude"
+        step="0.000001"
+        required
+        ngModel
+        #inputLongitude="ngModel"
+      />
+      @if(inputLongitude?.touched){
+        <div class="error-message">
+          @if(inputLongitude?.errors?.['required']) {
+            <div>Longitude is required</div>
+          }
+        </div>
+        }
+      <label for="creator">Creator:</label>
+      <input
+        type="text"
+        id="creator"
+        name="creator"
+        placeholder="Enter your name"
+        required
+        ngModel
+        #inputCreator="ngModel"
+      />
+      @if(inputCreator?.touched){
+        <div class="error-message">
+          @if(inputCreator?.errors?.['required']) {
+            <div>Creator is required</div>
+          }
+        </div>
+        }
+  
+      <label for="size">Size of Dump:</label>
+      <input
+        type="text"
+        id="size"
+        name="size"
+        placeholder="Enter size of dump"
+        required
+        ngModel
+        #inputSize="ngModel"
+      />
+  
+      @if(inputSize?.touched){
+        <div class="error-message">
+          @if(inputSize?.errors?.['required']) {
+            <div>Size is required</div>
+          }
+        </div>
+        }
+  
+      <label for="people">People Needed:</label>
+      <input
+        type="text"
+        id="people"
+        name="people"
+        placeholder="Enter number of people needed"
+        required
+        ngModel
+        #inputPeopleNeeded="ngModel"
+      />
+      @if(inputPeopleNeeded?.touched){
+        <div class="error-message">
+          @if(inputPeopleNeeded?.errors?.['required']) {
+            <div>People needed is required</div>
+          }
+        </div>
+        }
+  
+      <label for="tools">Tools Needed:</label>
+      <textarea
+        id="tools"
+        name="tools"
+        placeholder="Enter tools needed, separated by commas"
+        required
+        ngModel
+        #inputToolsNeeded="ngModel"
+      ></textarea>
+      @if(inputToolsNeeded?.touched){
+        <div class="error-message">
+          @if(inputToolsNeeded?.errors?.['required']) {
+            <div>Tools is required</div>
+          }
+        </div>
+        }
+  
+      <button class="btn" type="submit">Submit</button>
+    </form>
+  </div>
+  
+}
+
