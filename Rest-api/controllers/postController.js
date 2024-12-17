@@ -95,14 +95,14 @@ function deletePost(req, res, next) {
         .catch(next);
 }
 
-function like(req, res, next) {
+function attend(req, res, next) {
     const { postId } = req.params;
     const { _id: userId } = req.user;
 
-    console.log('like')
+    console.log('attend')
 
-    postModel.updateOne({ _id: postId }, { $addToSet: { likes: userId } }, { new: true })
-        .then(() => res.status(200).json({ message: 'Liked successful!' }))
+    postModel.updateOne({ _id: postId }, { $addToSet: { attends: userId } }, { new: true })
+        .then(() => res.status(200).json({ message: 'Attend successful!' }))
         .catch(next)
 }
 
@@ -113,5 +113,5 @@ module.exports = {
     createPost,
     editPost,
     deletePost,
-    like,
+    attend,
 }

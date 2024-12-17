@@ -14,15 +14,23 @@
   <p>{{ post.people }}</p>
   <p><strong>Tools Needed</strong></p>
   <p>{{ post.tools }}</p>
+  @if (isOwner) {
   <button type="submit" (click)="editMode()"  class="btn" >
     Update Post
-  </button>
-  <button type="submit" class="btn" >
-    Attend
   </button>
   <button (click)="deletePost()" type="submit" class="btn" >
     Delete Post
   </button>
+  <button (click)="markAsCleaned()" type="submit" class="btn" >
+    Mark as cleaned
+  </button>
+} @else {
+  <button (click)="attend()" type="submit" class="btn" >
+    Attend
+  </button>
+}
+<p><strong>Attended</strong></p>
+<p>{{ post }}</p>
 </div>
 } @else {
   <div class="form-container">

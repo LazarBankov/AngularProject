@@ -15,6 +15,8 @@ import { CommonModule } from '@angular/common';
 })
 export class ProfileComponent implements OnInit {
   isEditMode: boolean = false;
+  isOwner: boolean = false;
+
 
   profileDetails: ProfileDetails = {
     email: '',
@@ -35,8 +37,13 @@ export class ProfileComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
+
+
+
     this.userService.getUser().subscribe(user => {
       if (user) {
+        console.log(user);
+        
         this.profileDetails = { 
           email: user.email, 
           username: user.username, 

@@ -19,7 +19,7 @@ export interface UserForAuth {
     placeOfLiving: string;
     hobbies: string;
     tools: string
-    id: string;
+    _id: string;
 }
 
 export interface ProfileDetails {

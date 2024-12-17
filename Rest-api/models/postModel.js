@@ -38,7 +38,7 @@ const postSchema = new mongoose.Schema({
         type: Array, 
         required: true
     }],
-    likes: [{
+    attends: [{
         type: ObjectId,
         ref: 'User' 
     }],

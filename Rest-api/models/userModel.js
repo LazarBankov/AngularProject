@@ -43,7 +43,7 @@ const userSchema = new mongoose.Schema({
     tools: {
         type: String,
     },
-    likes: [{
+    attends: [{
         type: ObjectId,
         ref: "User"
     }],
