@@ -98,12 +98,6 @@ function deletePost(req, res, next) {
 function attend(req, res, next) {
     const { postId } = req.params;
     const { _id: userId } = req.user;
-
-    console.log('attend')
-
-function attend(req, res, next) {
-    const { postId } = req.params;
-    const { _id: userId } = req.user;
     
     postModel.updateOne({ _id: postId }, { $addToSet: { attends: userId } }, { new: true })
         .then(() => res.status(200).json({ message: 'Attend successful!' }))
