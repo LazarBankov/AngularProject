@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Post } from './types/post';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -23,10 +24,15 @@ export class ApiService {
     return this.http.get<Post>(`/ecohunt/posts/${id}`)
   }
 
-  attendCleaningEvent() {
-    
+  attendCleaningEvent(post: Post) {
+    return this.http.put(`/ecohunt/posts/${post._id}`, post)
   }
-
+  markAsCleaned(postId: string) {
+    return this.http.patch<{ message: string }>(`/ecohunt/posts/${postId}/markAsCleaned`, {});
+  }
+  getCleanedPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>('/ecohunt/posts/cleaned');
+  }
   createPost(photo: string, address: string, latitude: string, longitude: string, creator: string, size: string, people: string, tools: string) {
     const payload = { photo, address, latitude, longitude, creator, size, people, tools };
     return this.http.post<Post>(`/ecohunt/posts`, payload)

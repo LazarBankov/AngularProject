@@ -11,7 +11,7 @@ router.post('/logout', authController.logout);
 
 router.use('/users', users);
 router.use('/posts', posts);
-router.use('/attends', attends);
+router.use('/posts', attends);
 router.use('/test', test);
 router.get('/posts/:postId', posts);
 router.delete('/posts/:postId', posts);

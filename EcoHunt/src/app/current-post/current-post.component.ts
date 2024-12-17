@@ -16,6 +16,7 @@ export class CurrentPostComponent implements OnInit {
   post = {} as Post;
   isEditMode: boolean = false;
   isOwner: boolean = false;
+  isAttended: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,8 +29,17 @@ export class CurrentPostComponent implements OnInit {
     const id = this.route.snapshot.params['postId'];
     this.apiService.getSinglePost(id).subscribe(post => {
       this.post = post;
+      const userId = this.userService.user?._id
       
-      if (this.userService.user?._id === this.post.userId._id) {
+      const userIncluded = this.post.attends.find((user) => user == userId)
+      
+      if (userIncluded) {
+        this.isAttended = true;
+      } else {
+        this.isAttended = false;
+      }
+      
+      if (userId === this.post.userId._id) {
         this.isOwner = true;
       } else {
         this.isOwner = false;
@@ -42,9 +52,15 @@ export class CurrentPostComponent implements OnInit {
   }
 
   attend() {
-    const postId = this.post._id
 
-
+    this.apiService.attendCleaningEvent(this.post).subscribe({
+      next: () => {
+        this.router.navigate([`/actual-dump-places`]);
+      },
+      error: (err) => {
+        console.error('Failed to delete post', err);
+      }
+    })
   }
 
   markAsCleaned() {

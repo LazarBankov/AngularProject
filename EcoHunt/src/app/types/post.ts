@@ -9,6 +9,6 @@ created: Date;
 size: string;
 people: number;
 tools: string;
-attended: string[];
+attends: string[];
 userId: Post;
 }
