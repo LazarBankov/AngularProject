@@ -17,6 +17,7 @@ export class CurrentPostComponent implements OnInit {
   isEditMode: boolean = false;
   isOwner: boolean = false;
   isAttended: boolean = false;
+  isAuth: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -39,6 +40,12 @@ export class CurrentPostComponent implements OnInit {
         this.isAttended = false;
       }
       
+      if (userId) {
+        this.isAuth = true
+      } else {
+        this.isAuth = false
+      }
+
       if (userId === this.post.userId._id) {
         this.isOwner = true;
       } else {
@@ -52,21 +59,29 @@ export class CurrentPostComponent implements OnInit {
   }
 
   attend() {
-    console.log(this.post._id);
-    
     this.apiService.attendCleaningEvent(this.post).subscribe({
       next: () => {
         this.ngOnInit()
+        
         this.router.navigate([`/actual-dump-places/${this.post._id}`]);
       },
       error: (err) => {
-        console.error('Failed to delete post', err);
+        console.error('Failed to attend post', err);
       }
     })
   }
 
   markAsCleaned() {
-    
+    this.apiService.markAsCleaned(this.post).subscribe({
+      next: () => {
+        this.deletePost()
+        this.ngOnInit()
+        this.router.navigate([`/cleaned`]);
+      },
+      error: (err) => {
+        console.error('Failed to mark as cleaned post', err);
+      }
+    })
   }
 
   editPost(form: NgForm) {

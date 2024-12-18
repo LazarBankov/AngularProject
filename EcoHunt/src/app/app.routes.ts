@@ -16,17 +16,17 @@ export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', children: [
         { path: '', component: HomeComponent }, 
-        { path: ':postId', component: CurrentPostComponent, canActivate: [AuthGuard] }, 
+        { path: ':postId', component: CurrentPostComponent }, 
     ] },
     { path: 'login', component: LoginComponent },   
     { path: 'profile', component: ProfileComponent, canActivate: [ AuthGuard ] },
     { path: 'register', component: RegisterComponent },
-    { path: 'cleaned-places', component: CleanedPlacesComponent },
+    { path: 'cleaned', component: CleanedPlacesComponent },
     { path: 'create', component: CreateDumpPlaceComponent, canActivate: [AuthGuard] },
     { path: 'actual-dump-places', children: [
         { path: '', component: ActualDumpPlacesComponent }, 
         { path: ':postId', component: CurrentPostComponent }, 
-    ] , canActivate: [AuthGuard]
+    ]
 },
     { path: 'error', component: ErrorMsgComponent },
     { path: 'about', component: AboutComponent },

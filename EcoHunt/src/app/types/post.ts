@@ -10,5 +10,6 @@ size: string;
 people: number;
 tools: string;
 attends: string[];
+isCleaned: boolean;
 userId: Post;
 }

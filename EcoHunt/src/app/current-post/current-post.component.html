@@ -27,7 +27,8 @@
     Mark as cleaned
   </button>
 } @else {
-  @if (!isAttended) {
+
+  @if (!isAttended && isAuth) {
   <button (click)="attend()" type="submit" class="btn" >
     Attend
   </button>

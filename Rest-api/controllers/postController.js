@@ -1,15 +1,19 @@
 const { userModel, postModel } = require('../models');
 
-async function newPost(userId, photo, address, latitude, longitude, creator, size, people, tools) {
+async function newPost(userId, photo, address, latitude, longitude, creator, size, people, tools, isCleaned) {
     const post = await postModel.create({ userId, photo, address, latitude, longitude, creator, size, people, tools });
-     await userModel.updateOne({ _id: userId }, { $push: { posts: post._id } })
+       await userModel.updateOne({ _id: userId }, { $push: { posts: post._id } })
      return post;
 }
-
+async function newCleanedPost( userId, photo, address, latitude, longitude, creator, size, people, tools, isCleaned) {
+    const post = await postModel.create({ userId, photo, address, latitude, longitude, creator, size, people, tools, isCleaned });
+    await userModel.updateOne({ _id: userId }, { $pull: { posts: post._id } })
+     return post;
+}
 function getLatestsPosts(req, res, next) {
     const limit = Number(req.query.limit) || 0;
 
-    postModel.find()
+    postModel.find({isCleaned: false})
         .sort({ created_at: -1 })
         .limit(limit)
         .populate('userId')
@@ -38,7 +42,7 @@ function getSinglePost(req, res, next) {
 function getCleaned(req, res, next) {
     const limit = Number(req.query.limit) || 0;
 
-    postModel.find()
+    postModel.find({isCleaned: true})
         .sort({ created_at: -1 })
         .limit(limit)
         .populate('userId')
@@ -47,7 +51,15 @@ function getCleaned(req, res, next) {
         })
         .catch(next);
 }
-
+function createCleaned(req, res, next) {
+    const { photo, address, latitude, longitude, creator, size, people, tools, isCleaned } = req.body;
+    const userId = req.user._id;
+    
+    newCleanedPost( userId, photo, address, latitude, longitude, creator, size, people, tools, isCleaned )
+        .then(post => res.status(201).json(post))
+        .catch(next);
+    
+}
 function createPost(req, res, next) {
     
     const { photo, address, latitude, longitude, creator, size, people, tools } = req.body;
@@ -126,5 +138,6 @@ module.exports = {
     editPost,
     deletePost,
     attend,
-    getCleaned
+    getCleaned,
+    createCleaned
 }

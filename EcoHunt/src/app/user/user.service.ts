@@ -58,7 +58,7 @@ export class UserService {
 
   getUser() {
     return this.http
-      .get<UserForAuth>('/ecohunt/users/profile')
+      .get<UserForAuth>('/ecohunt/users/profile', {withCredentials: true})
       .pipe(tap((user) => this.user$$.next(user)));
   }
 
@@ -73,7 +73,7 @@ export class UserService {
         placeOfLiving,
         hobbies,
         tools
-      })
+      }, {withCredentials: true})
       .pipe(tap((user) => this.user$$.next(user)));
   }
 }

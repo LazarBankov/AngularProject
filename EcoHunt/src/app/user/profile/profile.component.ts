@@ -41,9 +41,7 @@ export class ProfileComponent implements OnInit {
 
 
     this.userService.getUser().subscribe(user => {
-      if (user) {
-        console.log(user);
-        
+      if (user) {        
         this.profileDetails = { 
           email: user.email, 
           username: user.username, 

@@ -1,0 +1,21 @@
+@for (post of posts; track $index) {
+    <div class="card-container">
+      @if (isLoading) {
+      <app-loader></app-loader>
+      } @else {
+        <div class="card">
+          <img [src]="post.photo" alt="Dump Photo" />
+          <div class="card-content">
+            <h3>Location: {{ post.address }}</h3>
+            <p><strong>Initiator:</strong>{{post.creator}}</p>
+            <p><strong>Latitude:</strong> {{ post.latitude }}</p>
+            <p><strong>Longitude:</strong> {{ post.longitude }}</p>
+            <p><strong>Size:</strong> {{ post.size }}</p>
+            <p><strong>People worked:</strong> {{ post.people }}</p>
+            <p><strong>Tools Used:</strong> {{ post.tools }}</p>
+          </div>
+      </div>
+      }
+    </div>
+    }
+    
