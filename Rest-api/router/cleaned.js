@@ -5,6 +5,7 @@ const { postController } = require('../controllers');
 
 // middleware that is specific to this router
 
-router.put('/:postId/attend', auth(), postController.attend);
+router.get('/cleaned', postController.getCleaned);
+
 
 module.exports = router

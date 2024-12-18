@@ -52,10 +52,12 @@ export class CurrentPostComponent implements OnInit {
   }
 
   attend() {
-
+    console.log(this.post._id);
+    
     this.apiService.attendCleaningEvent(this.post).subscribe({
       next: () => {
-        this.router.navigate([`/actual-dump-places`]);
+        this.ngOnInit()
+        this.router.navigate([`/actual-dump-places/${this.post._id}`]);
       },
       error: (err) => {
         console.error('Failed to delete post', err);

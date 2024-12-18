@@ -35,6 +35,18 @@ function getSinglePost(req, res, next) {
         .catch(next);
 }
 
+function getCleaned(req, res, next) {
+    const limit = Number(req.query.limit) || 0;
+
+    postModel.find()
+        .sort({ created_at: -1 })
+        .limit(limit)
+        .populate('userId')
+        .then(posts => {
+            res.status(200).json(posts)
+        })
+        .catch(next);
+}
 
 function createPost(req, res, next) {
     
@@ -95,6 +107,8 @@ function deletePost(req, res, next) {
         .catch(next);
 }
 
+
+
 function attend(req, res, next) {
     const { postId } = req.params;
     const { _id: userId } = req.user;
@@ -112,4 +126,5 @@ module.exports = {
     editPost,
     deletePost,
     attend,
+    getCleaned
 }

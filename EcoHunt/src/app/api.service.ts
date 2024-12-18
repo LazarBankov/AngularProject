@@ -25,7 +25,7 @@ export class ApiService {
   }
 
   attendCleaningEvent(post: Post) {
-    return this.http.put(`/ecohunt/posts/${post._id}`, post)
+    return this.http.put(`/ecohunt/posts/${post._id}/attend`, post)
   }
   markAsCleaned(postId: string) {
     return this.http.patch<{ message: string }>(`/ecohunt/posts/${postId}/markAsCleaned`, {});
