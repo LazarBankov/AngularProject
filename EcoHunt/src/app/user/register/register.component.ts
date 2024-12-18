@@ -9,12 +9,12 @@ import {
 import { emailValidator } from '../../utils/email.validator';
 import { DOMAINS } from '../../constants';
 import { equalPassValidator } from '../../utils/equal-pass.validator';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })

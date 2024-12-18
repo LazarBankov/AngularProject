@@ -57,5 +57,6 @@ h2 {
 }
 
 .register-link a:hover {
+  cursor: pointer;
   text-decoration: underline;
 }

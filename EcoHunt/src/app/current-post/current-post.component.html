@@ -15,7 +15,7 @@
   <p><strong>Tools Needed</strong></p>
   <p>{{ post.tools }}</p>
   <p><strong>Attended</strong></p>
-  <p>{{ post.attends.length }}</p>
+  <p>{{ attendedLength }}</p>
   @if (isOwner) {
   <button type="submit" (click)="editMode()"  class="btn" >
     Update Post

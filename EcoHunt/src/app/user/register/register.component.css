@@ -36,3 +36,17 @@
 .btn:disabled {
   background-color: #ddd;
 }
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
