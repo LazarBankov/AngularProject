@@ -19,6 +19,8 @@ body {
   margin: 20px;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeIn 1.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .post-container:hover {
@@ -77,6 +79,8 @@ p strong {
   display: flex;
   justify-content: center;
   margin-top: 80px;
+  animation: fadeIn 1.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 h2 {
@@ -120,5 +124,13 @@ input, textarea {
 
   p {
     font-size: 0.9rem;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

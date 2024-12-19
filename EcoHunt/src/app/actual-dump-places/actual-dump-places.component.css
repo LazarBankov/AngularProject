@@ -14,6 +14,8 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 25px;
+  animation: fadeIn 1.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .card {
@@ -64,4 +66,12 @@ body {
 
 .details-button:hover {
   background-color: #45a049;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

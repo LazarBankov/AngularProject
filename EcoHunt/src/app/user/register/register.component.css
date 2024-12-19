@@ -5,6 +5,8 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
+  animation: fadeIn 1.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 .form-group {
   margin-bottom: 15px;
@@ -49,4 +51,12 @@
 .login-link a:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
