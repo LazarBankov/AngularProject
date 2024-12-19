@@ -4,11 +4,12 @@ import { ApiService } from '../api.service';
 import { Post } from '../types/post';
 import { FormsModule, NgForm } from '@angular/forms';
 import { UserService } from '../user/user.service';
+import { CorrectTimePipe } from '../shared/pipes/correct-time.pipe';
 
 @Component({
   selector: 'app-current-post',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CorrectTimePipe],
   templateUrl: './current-post.component.html',
   styleUrls: ['./current-post.component.css'],
 })
@@ -37,7 +38,7 @@ export class CurrentPostComponent implements OnInit {
       const userIncluded = this.post.attends.find((user) => user == userId);
 
       this.attendedLength = post.attends.length;
-
+      
       if (userIncluded) {
         this.isAttended = true;
       } else {

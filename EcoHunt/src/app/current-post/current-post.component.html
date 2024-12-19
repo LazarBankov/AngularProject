@@ -14,6 +14,8 @@
   <p>{{ post.people }}</p>
   <p><strong>Tools Needed</strong></p>
   <p>{{ post.tools }}</p>
+  <p><strong>Updated</strong></p>
+  <p>{{ post.updatedAt | correctTime }}</p>
   <p><strong>Attended</strong></p>
   <p>{{ attendedLength }}</p>
   @if (isOwner) {

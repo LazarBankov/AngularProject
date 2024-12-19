@@ -11,5 +11,6 @@ people: number;
 tools: string;
 attends: string[];
 isCleaned: boolean;
+updatedAt: Date;
 userId: Post;
 }
