@@ -1,22 +1,19 @@
 body {
   font-family: "Roboto", Arial, sans-serif;
   background-color: #f8f9fa;
-  margin: 0;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  display: grid;
+  place-items: center; 
+  height: 100vh;           
+  margin: 0;    
 }
 
 .post-container {
-  background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  margin-top: 25px;
+  margin-left: 550px;
   max-width: 500px;
-  width: 100%;
-  margin: 20px;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
   animation: fadeIn 1.5s ease-in-out;
@@ -68,12 +65,10 @@ p strong {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transform: rotate(10deg);
-
 }
 
-
 .form-container {
-  align-items:center;
+  align-items: center;
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -99,7 +94,8 @@ label {
   font-size: 0.875rem;
 }
 
-input, textarea {
+input,
+textarea {
   width: calc(100% - 20px);
   padding: 10px;
   margin: 5px 0 10px 0;
@@ -126,6 +122,7 @@ input, textarea {
     font-size: 0.9rem;
   }
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;

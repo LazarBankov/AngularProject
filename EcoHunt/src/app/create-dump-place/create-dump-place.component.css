@@ -1,5 +1,6 @@
 
 .form-container {
+
     align-items:center;
     background: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -8,8 +9,13 @@
     margin-top: 80px;
     animation: fadeIn 1.5s ease-in-out;
     transition: transform 0.3s ease-in-out;
+    background-image: url('/65678760a622ea14ac68a2aa_assets-3-p-800.png');
+    background-size: 20%;
+    background-position:bottom;
+    background-position: left;
+    background-repeat:no-repeat;
+    overflow:auto;
 }
-
 h2 {
     text-align: center;
     color: #28a745;

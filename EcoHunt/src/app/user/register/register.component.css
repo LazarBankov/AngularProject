@@ -8,7 +8,11 @@
   animation: fadeIn 1.5s ease-in-out;
   transition: transform 0.3s ease-in-out;
 }
+h2 {
+  text-align: center;
+}
 .form-group {
+  margin-right: 15px;
   margin-bottom: 15px;
 }
 .form-control {

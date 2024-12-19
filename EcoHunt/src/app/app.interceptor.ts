@@ -23,7 +23,7 @@ export const appInterceptor: HttpInterceptorFn = (req, next) => {
     catchError((err) => {
       if (err.status === 401) {
         errorMsgService.setError(err);
-        router.navigate(['/error']);
+        router.navigate(['/login']);
       }else {
         errorMsgService.setError(err);
         router.navigate(['/error']);

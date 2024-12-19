@@ -1,10 +1,18 @@
 *{
   animation: fadeIn 1.5s ease-in-out;
   transition: transform 0.3s ease-in-out;
+  
 }
-
+.container {
+  background-image: url('/65678760a622ea14ac68a2aa_assets-3-p-800.png');
+  background-size: 20%; 
+  background-position:bottom; 
+  background-position: left;
+  background-repeat: no-repeat;
+  overflow:auto;
+}
 body {
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family:'Times New Roman', Times, serif;
   margin: 0;
   padding: 0;
   color: #333;
@@ -18,8 +26,12 @@ body {
   color: green;
   text-align: center;
   padding: 3rem 2rem;
-  background-size: cover;
-  background-position: center;
+  background-image: url('/6567872a2d026f4cc9de899b_assets-p-800.png');
+  background-size: 20%; 
+  background-position:bottom; 
+  background-position: right;
+  background-repeat: no-repeat;
+  overflow:auto; 
 }
 
 .hero h2 {
@@ -29,6 +41,7 @@ body {
   font-weight: bold;
   margin: 0;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+
 }
 
 .hero p {
@@ -55,12 +68,23 @@ body {
   font-weight: 600;
 }
 
+.phone-girl {
+  max-width: 50%;
+  float: right; 
+}
+
 .featured-dumps {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 2rem;
   gap: 2rem;
+  background-image: url('/leaves.png');
+  background-size: 20%;
+  background-position:bottom; 
+  background-position: right;
+  background-repeat: no-repeat;
+  overflow:auto; 
 }
 
 .dump {
@@ -72,6 +96,7 @@ body {
   padding: 1rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s ease-in-out;
+
 }
 
 .dump:hover {
@@ -112,7 +137,6 @@ body {
   font-size: 1rem;
   width: 100%;
   max-width: 200px;
-  display: block;
   margin-top: 1rem;
 }
 
