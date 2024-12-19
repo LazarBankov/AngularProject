@@ -1,35 +1,24 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ErrorComponent } from './error/error.component';
-import { LoginComponent } from './user/login/login.component';
-import { RegisterComponent } from './user/register/register.component';
-import { CleanedPlacesComponent } from './cleaned-places/cleaned-places.component';
-import { AboutComponent } from './core/about/about.component';
-import { CreateDumpPlaceComponent } from './create-dump-place/create-dump-place.component';
-import { ActualDumpPlacesComponent } from './actual-dump-places/actual-dump-places.component';
-import { CurrentPostComponent } from './current-post/current-post.component';
 import { AuthGuard } from './guards/auth.guard';
-import { ProfileComponent } from './user/profile/profile.component';
-import { ErrorMsgComponent } from './core/error-msg/error-msg.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', children: [
-        { path: '', component: HomeComponent }, 
-        { path: ':postId', component: CurrentPostComponent }, 
+        { path: '', loadComponent: () => import('./home/home.component').then(c => c.HomeComponent) }, 
+        { path: ':postId', loadComponent: () => import('./current-post/current-post.component').then(c => c.CurrentPostComponent) }, 
     ] },
-    { path: 'login', component: LoginComponent },   
-    { path: 'profile', component: ProfileComponent, canActivate: [ AuthGuard ] },
-    { path: 'register', component: RegisterComponent },
-    { path: 'cleaned', component: CleanedPlacesComponent },
-    { path: 'create', component: CreateDumpPlaceComponent, canActivate: [AuthGuard] },
+    { path: 'login', loadComponent: () => import('./user/login/login.component').then(c => c.LoginComponent) },   
+    { path: 'profile', loadComponent: () => import('./user/profile/profile.component').then(c => c.ProfileComponent), canActivate: [AuthGuard] },
+    { path: 'register', loadComponent: () => import('./user/register/register.component').then(c => c.RegisterComponent) },
+    { path: 'cleaned', loadComponent: () => import('./cleaned-places/cleaned-places.component').then(c => c.CleanedPlacesComponent) },
+    { path: 'create', loadComponent: () => import('./create-dump-place/create-dump-place.component').then(c => c.CreateDumpPlaceComponent), canActivate: [AuthGuard], },
     { path: 'actual-dump-places', children: [
-        { path: '', component: ActualDumpPlacesComponent }, 
-        { path: ':postId', component: CurrentPostComponent }, 
+        { path: '', loadComponent: () => import('./actual-dump-places/actual-dump-places.component').then(c => c.ActualDumpPlacesComponent) }, 
+        { path: ':postId', loadComponent: () => import('./current-post/current-post.component').then(c => c.CurrentPostComponent) }, 
     ]
 },
-    { path: 'error', component: ErrorMsgComponent },
-    { path: 'about', component: AboutComponent },
-    { path: '404', component: ErrorComponent },
+    { path: 'error', loadComponent: () => import('./core/error-msg/error-msg.component').then(c => c.ErrorMsgComponent) },
+    { path: 'about', loadComponent: () => import('./core/about/about.component').then(c => c.AboutComponent) },
+    { path: '404', loadComponent: () => import('./error/error.component').then(c => c.ErrorComponent) },
     { path: '**', redirectTo: '/404' },
 ];

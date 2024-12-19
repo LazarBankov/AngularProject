@@ -26,7 +26,7 @@ export const appInterceptor: HttpInterceptorFn = (req, next) => {
         router.navigate(['/error']);
       }else {
         errorMsgService.setError(err);
-        router.navigate(['/404']);
+        router.navigate(['/error']);
       }
 
       return [err];
