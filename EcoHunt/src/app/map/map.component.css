@@ -1,0 +1,8 @@
+#map {
+    height: calc(100vh - 50px); /* Make the map take full viewport height minus the header height */
+    width: 100%;
+    margin-top: 50px; /* Optionally add space for the header */
+    position: relative; /* Ensure the map is in the normal flow of the document */
+    z-index: 1;
+  }
+  

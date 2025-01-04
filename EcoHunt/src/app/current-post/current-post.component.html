@@ -2,10 +2,7 @@
 <div class="post-container">
   <h2>{{ post.address }}</h2>
   <img [src]="post.photo" alt="Post Image" class="post-image" />
-  <p><strong>Latitude</strong></p>
-  <p>{{ post.latitude }}</p>
-  <p><strong>Longitude</strong></p>
-  <p>{{ post.longitude }}</p>
+  <app-map></app-map>
   <p><strong>Created By</strong></p>
   <p>{{ post.creator }}</p>
   <p><strong>Size</strong></p>

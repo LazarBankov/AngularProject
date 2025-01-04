@@ -5,11 +5,12 @@ import { Post } from '../types/post';
 import { FormsModule, NgForm } from '@angular/forms';
 import { UserService } from '../user/user.service';
 import { CorrectTimePipe } from '../shared/pipes/correct-time.pipe';
+import { MapComponent } from '../map/map.component';
 
 @Component({
   selector: 'app-current-post',
   standalone: true,
-  imports: [FormsModule, CorrectTimePipe],
+  imports: [FormsModule, CorrectTimePipe, MapComponent],
   templateUrl: './current-post.component.html',
   styleUrls: ['./current-post.component.css'],
 })
