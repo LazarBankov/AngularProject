@@ -1,53 +1,128 @@
-EcoHunt Project Documentation
-Overview
-EcoHunt is a web application designed to manage and track environmental cleanup efforts. The application allows users to create, view, and manage posts related to cleanup activities. Users can register, log in, and manage their profiles and posts. Additionally, the application supports marking cleanup activities as completed.
+# EcoHunt - Environmental Social Platform
 
-Used Frameworks and Libraries
-Frontend
-Angular
-RxJS
+EcoHunt is a full-stack web application that allows users to share and discover environmental initiatives, challenges, and achievements. The platform aims to build a community of environmentally conscious individuals who can inspire and learn from each other.
 
-Backend
-Node.js
-Express.js
+## Project Structure
 
-Installation
-Prerequisites
-Node.js 
-Angular CLI 
+The project consists of two main parts:
 
-Functionality
+### Frontend (EcoHunt)
+- Built with Angular
+- Located in the `EcoHunt/` directory
+- Handles user interface and interactions
+- Features modern, responsive design
 
-Public Part
-Home Page: Displays the latest posts related to cleanup activities.
-Cleaned places: Displays all cleaned places.
-Actual Dump Places: Displays all dump places that are attending people for cleaning process.
-Details of each post in Actual Dump Places
-Login and Registration: Allows users to create an account and log in.
-About: Gives information about the platform and our targets.
-ALL ABOVE ARE WITHOUT FUNCTIONALITY EXCEPT LOGIN AN REGISTER.
+### Backend (Rest-api)
+- Built with Node.js and Express
+- Located in the `Rest-api/` directory
+- Manages data and business logic
+- Provides RESTful API endpoints
 
-Private Part
-User Profile: Allows users to view and edit their profile information.
-Create Post: Enables logged-in users to create new posts about cleanup activities.
-Logout: For logout your profile.
-Details: in details if you are the owner you can Edit post, Delete it and Mark it as CLEANED and the post goes to the Cleaned Places catalog, if you are authenticated user you can attend to the event for cleaning it.
+## Prerequisites
 
-API Endpoints
-GET /ecohunt/posts: Retrieves the latest posts.
-GET /ecohunt/posts/:postId: Retrieves a single post by ID.
-POST /ecohunt/posts: Creates a new post (requires authentication).
-PUT /ecohunt/posts/:postId: Updates a post by ID (requires authentication).
-DELETE /ecohunt/posts/:postId: Deletes a post by ID (requires authentication).
-PUT /ecohunt/posts/:postId/attend: Marks a post as attended (requires authentication).
-POST /ecohunt/posts/:postId/cleaned: Marks a post as cleaned (requires authentication).
+Before you begin, ensure you have the following installed:
+- Node.js (v14 or higher)
+- npm (Node Package Manager)
+- Angular CLI (`npm install -g @angular/cli`)
+- MongoDB (for the database)
 
-Architecture
-The project is structured following the Angular best practices:
+## Getting Started
 
-Components: Each UI element is encapsulated within a component.
-Services: Used for handling business logic and communication with the backend.
-Guards: Protect routes based on authentication status.
-Types: Define the data structures used in the application.
-Conclusion
-EcoHunt is a comprehensive application for managing environmental cleanup activities. With its robust frontend built on Angular and a powerful backend using Node.js and Express, it offers a seamless experience for users to contribute to and manage cleanup efforts.
+### Setting up the Backend
+
+1. Navigate to the backend directory:
+   ```bash
+   cd Rest-api
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file in the `Rest-api` directory with the following variables:
+   ```
+   PORT=3000
+   DB_URI=mongodb://localhost:27017/ecohunt
+   JWT_SECRET=your_jwt_secret_here
+   ```
+
+4. Start the server:
+   ```bash
+   npm start
+   ```
+
+### Setting up the Frontend
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd EcoHunt
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   ng serve
+   ```
+
+4. Open your browser and visit `http://localhost:4200`
+
+## Main Features
+
+### User Management
+- Registration and authentication
+- User profiles with environmental achievements
+- Profile customization
+
+### Posts and Interactions
+- Create and share environmental posts
+- Like and comment on posts
+- Browse environmental initiatives
+- Search functionality
+
+### Environmental Features
+- Track environmental impact
+- Share eco-friendly challenges
+- Community engagement
+
+## API Endpoints
+
+### Authentication
+- POST `/api/users/register` - Register a new user
+- POST `/api/users/login` - User login
+- POST `/api/users/logout` - User logout
+
+### Posts
+- GET `/api/posts` - Get all posts
+- POST `/api/posts` - Create a new post
+- GET `/api/posts/:id` - Get specific post
+- PUT `/api/posts/:id` - Update a post
+- DELETE `/api/posts/:id` - Delete a post
+
+### User Profile
+- GET `/api/users/profile` - Get user profile
+- PUT `/api/users/profile` - Update user profile
+
+## Contributing
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/improvement`)
+3. Make your changes
+4. Commit your changes (`git commit -am 'Add new feature'`)
+5. Push to the branch (`git push origin feature/improvement`)
+6. Create a Pull Request
+
+## Support
+
+If you encounter any issues or have questions, please:
+1. Check the existing issues in the repository
+2. Create a new issue with a detailed description
+3. Contact the development team
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
